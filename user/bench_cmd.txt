@@ -1,0 +1,4 @@
+/bin/phoronix-test-suite benchmark apache FORCE_TIMES_TO_RUN=1
+/bin/phoronix-test-suite benchmark nginx FORCE_TIMES_TO_RUN=1
+/bin/phoronix-test-suite benchmark compress-7zip FORCE_TIMES_TO_RUN=1
+/bin/phoronix-test-suite benchmark x264 FORCE_TIMES_TO_RUN=1

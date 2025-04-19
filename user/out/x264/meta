@@ -1,0 +1,4 @@
+/bin/phoronix-test-suite benchmark x264 FORCE_TIMES_TO_RUN=1
+user 219
+kernel 4
+other 16

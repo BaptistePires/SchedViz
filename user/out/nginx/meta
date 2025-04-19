@@ -1,0 +1,4 @@
+/bin/phoronix-test-suite benchmark nginx FORCE_TIMES_TO_RUN=1
+user 232
+kernel 5
+other 15
