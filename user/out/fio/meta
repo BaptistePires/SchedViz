@@ -1,4 +1,0 @@
-/bin/phoronix-test-suite benchmark fio FORCE_TIMES_TO_RUN=1
-user 282
-kernel 7
-other 12

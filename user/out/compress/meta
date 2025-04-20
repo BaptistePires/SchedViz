@@ -1,4 +1,0 @@
-/bin/phoronix-test-suite benchmark compress-7zip FORCE_TIMES_TO_RUN=1
-user 286
-kernel 3
-other 13

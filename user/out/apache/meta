@@ -1,4 +1,0 @@
-/bin/phoronix-test-suite benchmark apache FORCE_TIMES_TO_RUN=1
-user 673
-kernel 8
-other 14
