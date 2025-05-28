@@ -1,39 +1,51 @@
 # SchedViz
 
-Ce dépot contient les modules, scripts pour pouvoir analyser les temps de blocages des threads dans Linux v5.17.
-Ces travaux ont été réalisé dans le cadre de la thèse de Baptiste Pires.
 
-# `module/`
-Ce répertoire contient le code du module noyau Linux à insérer qui va s'occuper de réaliser les mesures et de les stocker. Il faut un noyau Linux v5.17 patché qui se trouve dans `kernel/`.
+This repository contains the modules and scripts used to analyze thread blocking times in Linux v5.17.  
+This work was carried out as part of Baptiste Pires' PhD thesis at the LIP6 in the Delys team. The thesis director is Pierre Sens, and the supervisors are : Swan Dubois, Redha Gouicem and Julien Sopena. This thesis is part of the  BPI Project - FogSLA‑Antillas project (DOS0168403/00‑DOS0168405/00).
 
-# `user/`
-Ce répertoire contient tout le code userspace qui permet de lancer, mesurer, analyser et produire des graphiques.
+## `module/`
 
-Le script `monitor_cmd.sh` permet de monitorer une commande :  
-1) Le module va être inséré
-2) La commande passée en paramètre va être lancée et ses processus/threads vont être tagués pour pouvoir suivre leur exécution.
-3) A la fin de l'exécution de la commande, les données vont être récupérées via le `sysfs`.
-4) Finalement, nous pouvons analyser les données.  
-> Il est possible de générer plusieurs courbes, par exemple :   
+This directory contains the code for the Linux kernel module to be inserted, which will perform the measurements and store the data. A patched Linux kernel v5.17 is required, located in the `kernel/` directory.
+
+## `user/`
+
+This directory contains all the userspace code used to run, measure, analyze, and generate graphs.
+
+The `monitor_cmd.sh` script allows you to monitor a command:  
+1. The module is inserted.  
+2. The command passed as a parameter is executed, and its processes/threads are tagged to enable tracking during execution.  
+3. At the end of the command’s execution, data is retrieved via `sysfs`.  
+4. Finally, the data can be analyzed.  
+
+> Several graphs can be generated, for example:
+
 ---
 
-Graphique représentant les blocages des threads. En abscisses nous avons l'heure de réveil et en ordonnées la durée du blocage. Les couleurs des points correspondent aux types de threads (benchmark (notre application), other (threads userspace autre que notre application) et kernel).
+### Graph showing thread blocking events
 
-Profil pour `apache-siege`
+- **X-axis**: Wake-up time  
+- **Y-axis**: Blocking duration  
+- **Color**: Thread type  
+  - `benchmark` (our application)  
+  - `other` (userspace threads not part of our app)  
+  - `kernel`
+
+#### Profile for `apache-siege`
 ---
-![](res/ths_apache-siege.png)
+![apache-siege](res/ths_apache-siege.png)
 
-
-Profile pour `compresss-7zip`
+#### Profile for `compress-7zip`
 ---
-![](res/ths_compress.png)
+![compress-7zip](res/ths_compress.png)
 
-Il est également possible de générer des courbes cumulative des blocages pour mieux visualiser la distribution de ces derniers, comme sur ce graphique :
+It is also possible to generate cumulative blocking graphs to better visualize the distribution of these events, as shown in the following chart:
 
-Courbe cumulative des blocages pour l'application `hackbench`
+### Cumulative blocking graph for the `hackbench` application
 ---
-![](user/cumulative.png)
+![hackbench](user/cumulative.png)
 
-# `kernel/`
+## `kernel/`
 
-Linux kernel `v5.17` patché pour pouvoir insérer le module.
+Patched Linux kernel `v5.17` required for inserting the module.
+
