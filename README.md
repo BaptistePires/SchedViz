@@ -1,7 +1,8 @@
 # SchedViz
 
 
-This repository contains the modules and scripts used to analyze thread blocking times in Linux v5.17.  
+This repository contains the modules and scripts used to analyze thread blocking times in Linux v5.17.   
+
 This work was carried out as part of Baptiste Pires' PhD thesis at the LIP6 in the Delys team. The thesis director is Pierre Sens, and the supervisors are : Swan Dubois, Redha Gouicem and Julien Sopena. This thesis is part of the  BPI Project - FogSLA‑Antillas project (DOS0168403/00‑DOS0168405/00).
 
 ## `module/`
